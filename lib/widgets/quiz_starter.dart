@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuizStarter extends StatelessWidget {
-  const QuizStarter({super.key});
+  const QuizStarter(this.startQuiz, {super.key});
 
-  startQuiz() {
-    print('start quiz');
-  }
+  final void Function() startQuiz;
 
   @override
   Widget build(context) {
@@ -17,15 +16,14 @@ class QuizStarter extends StatelessWidget {
           child: Image.asset(
             'assets/images/quiz-logo.png',
             width: 200,
-            color: const Color.fromARGB(255, 210, 77, 225),
           ),
         ),
         const SizedBox(
           height: 20,
         ),
-        const Text(
+        Text(
           'Learn Flutter the fun way',
-          style: TextStyle(
+          style: GoogleFonts.lato(
             color: Colors.white,
             fontSize: 20,
           ),
@@ -34,7 +32,7 @@ class QuizStarter extends StatelessWidget {
           height: 20,
         ),
         OutlinedButton.icon(
-          onPressed: () {},
+          onPressed: startQuiz,
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,
             textStyle: const TextStyle(fontSize: 20),
