@@ -1,3 +1,4 @@
+import 'package:adv_project/widgets/results_content.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsSummary extends StatelessWidget {
@@ -13,22 +14,8 @@ class QuestionsSummary extends StatelessWidget {
         child: Column(
           children: summaryData.map(
             (data) {
-              return Row(
-                children: [
-                  Text(((data['question_index'] as int) + 1).toString()),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(data['question'] as String),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(data['user_answer'] as String),
-                        Text(data['correct_answer'] as String),
-                      ],
-                    ),
-                  )
-                ],
+              return ResultsContent(
+                quizResults: data,
               );
             },
           ).toList(),
